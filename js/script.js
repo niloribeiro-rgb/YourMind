@@ -1,14 +1,9 @@
 const videos = document.querySelector(`#videosContainer`)
-const popUp = document.querySelector(`.popUpContainer`)
+const details = document.querySelector(`.details`)
+const garbageIcon = "assets\icons\garbage.svg"
 
 let videosLinks = []
 
-
-function openClosePopUp() {
-
-    // alert("calma! esta incompleto")
-    popUp.classList.toggle('activePopUp')
-}
 
 function salvarLink() {
     const inputLink = document.querySelector('#inputLink')
@@ -18,13 +13,13 @@ function salvarLink() {
         alert(`Opps! link nao tem 48 carecteres. Tem ${newLink.length} caracteres.`)
         return
     }
-    if (videosLinks.includes(newLink)){
-         alert(`Opps! ja existe aqui.`)
+    if (videosLinks.includes(newLink)) {
+        alert(`Opps! ja existe aqui.`)
         return
     }
     videosLinks.push(newLink)
     adicionarVideo()
-    popUp.classList.toggle('activePopUp')
+    details.open = false
     inputLink.value = ""
 
 }
@@ -33,6 +28,11 @@ function salvarLink() {
 adicionarVideo()
 
 function adicionarVideo() {
+    if (videosLinks.length == 0) {
+        // alert("Sem videos salvos")
+        videos.innerHTML = `<h1 style="color:white;">salve videos do youtube pelo +</h1>`
+        return
+    }
     videos.innerHTML = ""
 
 
@@ -92,6 +92,7 @@ function adicionarVideo() {
         videoWidth = Math.round(telaWidth * vw / 100)
         videoHeight = Math.round((videoWidth * 9) / 16)
     }
+    document.documentElement.style.setProperty('--heightCards', `${videoHeight}px`)
     console.log(videoWidth)
     console.log(videoHeight)
 
@@ -101,8 +102,25 @@ function adicionarVideo() {
 
         cardVideo.innerHTML += `<iframe width="${videoWidth}" height="${videoHeight}" src="https://www.youtube.com/embed/${videoCode[i]}?autoplay=1" allowfullscreen allow="autoplay" ></iframe>`
         // cardVideo.innerHTML += "<h2>Um traller</h2>"
+        const videoEdit = document.createElement(`div`)
+        videoEdit.className = "videoEdit"
+        const buttonsEdit = document.createElement(`div`)
+        buttonsEdit.className = "buttonsEdit"
+        const deleteButton = document.createElement(`button`)
+        deleteButton.innerHTML = `<img src="assets/icons/garbage.svg" alt=""></img>`
+        deleteButton.className = "deleteButton"
+        deleteButton.onclick = deleteVideo
+
+        buttonsEdit.appendChild(deleteButton)
+        videoEdit.appendChild(buttonsEdit)
+        cardVideo.appendChild(videoEdit)
+
         videos.appendChild(cardVideo.cloneNode(true))
     }
+}
+
+function deleteVideo(){
+    alert("ola")
 }
 
 const galeriaContainer = document.querySelector('.galeriaContainer')
