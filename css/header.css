@@ -1,0 +1,259 @@
+:root {
+    --headerHeight: 15vh;
+    --heightCards: ;
+}
+
+body {
+    /*   background: #0c0c0c; */
+    background: #000000;
+}
+
+/* header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    /* background-color: blueviolet; */
+    padding: 0 30px;
+    width: auto;
+    height: var(--headerHeight);
+}
+
+.logo {
+    width: 150px;
+    height: var(--headerHeight);
+}
+
+.logo img {
+    height: 100%;
+}
+
+.link {
+    display: flex;
+    line-height: var(--headerHeight);
+    gap: 10px;
+
+
+
+}
+
+.link a {
+    display: inline-block;
+
+    text-decoration: none;
+    color: white;
+}
+
+.link a:hover {
+    background-color: rgb(36, 36, 36);
+}
+
+.botao {
+    height: var(--headerHeight);
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 10px;
+}
+
+
+details {
+    position: relative;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 10px 10px 10px rgba(0,0,0.1);
+}
+
+details summary {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    padding: 15px;
+    background-color: #444444;
+    border-radius: 5px;
+    color: white;
+    user-select: none;
+}
+
+details summary:hover {
+    background-color: #3a3a3a;
+}
+
+details summary:active {
+    background-color: #292929;
+}
+
+.conteudo {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    border-radius: 5px;
+    padding: 10px;
+    background-color: #444444;
+
+}
+
+
+
+#inputLink {
+    border-radius: 5px 0 0 5px;
+    width: 170px;
+}
+
+.linkContainer {
+    display: flex;
+}
+
+.botaoOpen {
+    display: flex;
+    justify-content: center;
+
+}
+
+.botaoOpen button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 0px 10px 10px 0px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    /* width: 290px; */
+
+}
+
+.botaoOpen button:hover {
+    background-color: rgb(20, 20, 20);
+}
+
+.botaoOpen button:active {
+    background-color: rgb(32, 32, 32);
+}
+
+.group {
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.group input {
+    padding: 7px;
+    border-radius: 5px;
+    border: 1px solid black;
+    width: 170px;
+    outline: none;
+}
+
+.group label {
+    color: white;
+}
+
+#DetailsMenu .conteudo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#DetailsMenu .conteudo button{
+    background-color: #000000;
+    width: 100%;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+#DetailsMenu .conteudo a{
+    color: white;
+    text-decoration: none;
+}
+#DetailsMenu .conteudo a:hover{
+    color: rgb(230, 230, 230);
+}
+
+
+/* isso ta relacionado com a funcao adicionarVideo em relacao ao tamanho */
+@media(max-width:480px) {
+    header {
+        padding: 0 10px;
+    }
+
+    #DetailsMenu .conteudo {
+        /* right ta como padding do header de celular*/
+        right: -10px;
+        width: 200px;
+
+    }
+
+    .videosEImagesContainer {
+        grid-template-columns: repeat(auto-fit, 90vw);
+        gap: 10px;
+        padding: 20px 0px;
+    }
+
+    .cards:hover {
+        height: 300px;
+    }
+
+    .videoEdit {
+        width: 90vw;
+    }
+
+    .activePopUp {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    .link {
+        display: none;
+    }
+
+    .popUpTop {
+        /*  margin-top: 70px; */
+    }
+}
+
+@media(min-width:481px) and (max-width:1024px) {
+    .videosEImagesContainer {
+        grid-template-columns: repeat(auto-fit, 230px);
+        gap: 10px;
+        padding: 15px 0px;
+    }
+
+    .videoEdit {
+        width: 230px;
+    }
+
+    .activePopUp {
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+    }
+
+    .popUpTop {
+        /*  margin-top: 70px; */
+    }
+}
+
+@media(min-width:1025px) {
+    .videosEImagesContainer {
+        grid-template-columns: repeat(auto-fit, 29vw);
+        gap: 20px;
+    }
+
+    .videoEdit {
+        width: 29vw;
+    }
+
+    .activePopUp {
+        width: 500px;
+        border-radius: 20px;
+    }
+}

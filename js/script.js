@@ -1,27 +1,41 @@
 const videos = document.querySelector(`#videosContainer`)
-const details = document.querySelector(`.details`)
-const garbageIcon = "assets\icons\garbage.svg"
+const details = document.querySelector(`#detailsLink`)
+
 
 let videosLinks = []
 
+function verlinks() {
+    let texto = ""
+    if (videosLinks.length == 0) {
+        alert("sem links")
+        return
+    }
+    for (let i = 0; i < videosLinks.length; i++) {
+        texto += `\n${i + 1}. ${videosLinks[i]}`
+    }
+    alert(texto)
+}
 
 function salvarLink() {
     const inputLink = document.querySelector('#inputLink')
+    // DEVE ESTAR AQUI o const inputLink nao retire se nao
     //  const inputLink = document.querySelector('#inputLink').value pega o texto e nao o input. 
+
     let newLink = inputLink.value
     if (newLink.length < 48) {
         alert(`Opps! link nao tem 48 carecteres. Tem ${newLink.length} caracteres.`)
+        inputLink.value = ""
         return
     }
     if (videosLinks.includes(newLink)) {
         alert(`Opps! ja existe aqui.`)
+        inputLink.value = ""
         return
     }
     videosLinks.push(newLink)
     adicionarVideo()
     details.open = false
     inputLink.value = ""
-
 }
 
 
@@ -106,12 +120,13 @@ function adicionarVideo() {
         videoEdit.className = "videoEdit"
         const buttonsEdit = document.createElement(`div`)
         buttonsEdit.className = "buttonsEdit"
-        const deleteButton = document.createElement(`button`)
-        deleteButton.innerHTML = `<img src="assets/icons/garbage.svg" alt=""></img>`
-        deleteButton.className = "deleteButton"
-        deleteButton.onclick = deleteVideo
+        buttonsEdit.innerHTML = `<button onclick="deleteVideo(${i})" class="deleteButton"><img src="assets/icons/garbage.svg" alt=""></img></button>`
+        // const deleteButton = document.createElement(`button`)
+        // deleteButton.innerHTML = ``
+        // deleteButton.className = "deleteButton"
+        // deleteButton.onclick = deleteVideo
 
-        buttonsEdit.appendChild(deleteButton)
+        // buttonsEdit.appendChild(deleteButton)
         videoEdit.appendChild(buttonsEdit)
         cardVideo.appendChild(videoEdit)
 
@@ -119,8 +134,10 @@ function adicionarVideo() {
     }
 }
 
-function deleteVideo(){
-    alert("ola")
+function deleteVideo(index) {
+    // alert(index)
+    videosLinks.splice(index, 1)
+    adicionarVideo()
 }
 
 const galeriaContainer = document.querySelector('.galeriaContainer')

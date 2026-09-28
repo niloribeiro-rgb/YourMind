@@ -1,0 +1,58 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+main img{
+    width: 80vw;
+    height: auto;
+    border-radius: 15px;
+}
+
+.textContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70vw;
+}
+
+h3{
+    color: white;
+}
+
+p{
+    color: white;
+}
+
+hr{
+    width: 60vw;
+    border: 1px rgb(255, 255, 255) solid;
+}
+
+h1{
+    color: white;
+}
+.links{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.linkContainar{
+    display: flex;
+    gap: 10px;
+}
+label{
+    color: white;
+}
+a{
+    text-decoration: none;
+}

@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js" defer></script>
     <link rel="icon" type="image/png" href="assets/logo.png">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
     <title>YourMind</title>
 </head>
 
@@ -17,13 +19,12 @@
         </div>
         <nav>
             <div class="link">
-                <a href="#imagesContainer">IMAGENS</a>
-                <a href="#videosContainer">VIDEOS</a>
-                <a href="#galeriaContainer">GALERIA</a>
+                <a href="index.html">HOME</a>
+                <a href="html/sobre.html">SOBRE</a>
             </div>
         </nav>
         <div class="botao">
-            <details class="details">
+            <details id="detailsLink">
                 <summary><img src="assets/icons/more.svg" alt=""></summary>
                 <div class="conteudo">
                     <div class="group">
@@ -38,14 +39,24 @@
                     </div>
                 </div>
             </details>
+            <details id="DetailsMenu">
+                <summary><img src="assets/icons/menu.svg" alt=""></summary>
+                <div class="conteudo">
+                    <button onclick="verlinks()">VER LINKS</button>
+                    <div class="linkMenu">
+                        <a href="index.html">HOME</a>
+                        <a href="html/sobre.html">SOBRE</a>
+                    </div>
+                </div>
+            </details>
         </div>
     </header>
     <main>
         <!-- <div class="banner" style="background-image: url(assets/personagensDoJujutsu.png);">
         </div> -->
-        <select name="" id="">
+        <!-- <select name="" id="">
             <option value="todos">Todos</option>
-        </select>
+        </select> -->
 
 
 
@@ -74,9 +85,8 @@
     <img src="https://youtu.be/riD350E67RQ?si=LKG5SoCVudAJXh-P" alt="">
     <footer>
         <div class="linkFooter">
-            <a href="#imagesContainer">IMAGENS</a>
-            <a href="#videosContainer">VIDEOS</a>
-            <a href="#montrosGaleria">GALERIA</a>
+            <a href="index.html">HOME</a>
+            <a href="html/sobre.html">SOBRE</a>
         </div>
         <p>2026 &copy YourMind</p>
     </footer>
